@@ -1,0 +1,18 @@
+{
+    "name": "error-handling-examples",
+    "version": "0.0.1",
+    "description": "Examples for Error Handling",
+    "private": true,
+    "scripts": {
+        "start": "node ./crash.js",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "dependencies": {
+        "longjohn": "0.2.x"
+    },
+    "author": "Itai Koren (@itkoren)",
+    "license": "MIT",
+    "engines": {
+        "node": ">= 0.10.x"
+    }
+}
