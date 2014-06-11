@@ -6,7 +6,7 @@ var server = http.createServer(function(req, res) {
     // Handle HTTP Request
     var result = decodeURIComponent(req.url);
 
-    // chop off / at the beginning
+    // chop off / at the beginning %
     result = result.slice(1);
     result = result.toUpperCase(); // SHOUT
 

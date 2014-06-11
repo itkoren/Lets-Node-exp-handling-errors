@@ -1,7 +1,7 @@
 try {
-    setTimeout(function () {
+    setImmediate(function () {
         throw new Error("Who is going to catch me?");
-    }, 1);
+    });
 }
 catch (e) {
     console.log("Not me");
