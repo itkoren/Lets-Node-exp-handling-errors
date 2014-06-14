@@ -8,7 +8,7 @@ function CustomError() {
     // Adds a stack property to the given error object
     // that will yield the stack trace at the time
     // captureStackTrace was called
-    Error.captureStackTrace(this, arguments.callee);
+    Error.captureStackTrace(this, CustomError);
 
     this.name = "CustomError";
     this.message = util.format.apply(this, arguments);
