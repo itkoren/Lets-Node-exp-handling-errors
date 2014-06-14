@@ -4,6 +4,9 @@ var events = require("events");
 var util = require("util");
 var EventEmitter = events.EventEmitter;
 
+// Include The 'customError' Module
+var CustomError = require("./customError");
+
 // Here is the NumericValidator constructor
 var NumericValidator = function() {};
 util.inherits(NumericValidator, EventEmitter);
@@ -15,8 +18,12 @@ NumericValidator.prototype.validate = function(data) {
         this.emit("numeric", data);
     }
     else {
-        this.emit("error", "Data is not numeric");
+        this.error();
     }
+};
+
+NumericValidator.prototype.error = function() {
+    this.emit("error", new CustomError("Data is not numeric"));
 };
 
 // Create a TCP Server Instance and set an event listener & handler for the TCP connection event emitted by the server
@@ -46,6 +53,12 @@ var tcpServer = net.createServer(function(conn) {
 
     numericValidator.on("numeric", function(data){
         console.log("Numeric data received = ", data);
+    });
+
+    numericValidator.on("error", function(error){
+        console.log(error);
+        console.log("STACK:");
+        console.log(error.stack);
     });
 });
 

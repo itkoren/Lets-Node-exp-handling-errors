@@ -1,3 +1,7 @@
+if ("development" === process.env.NODE_ENV){
+    require("longjohn");
+}
+
 // include the net module
 var net = require("net");
 var events = require("events");

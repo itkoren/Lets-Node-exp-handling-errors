@@ -1,7 +1,3 @@
-if ("development" === process.env.NODE_ENV){
-    require("longjohn");
-}
-
 // include the net module
 var net = require("net");
 var events = require("events");
@@ -49,7 +45,11 @@ var tcpServer = net.createServer(function(conn) {
     conn.setEncoding("utf-8");
 
     numericValidator.on("numeric", function(data){
-        console.log("Numeric data recieved = ", data);
+        console.log("Numeric data received = ", data);
+    });
+
+    numericValidator.on("error", function(error){
+        console.log("ERROR: ", error);
     });
 });
 
